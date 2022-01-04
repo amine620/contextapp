@@ -5,13 +5,13 @@ import User from './User';
 export default function Users() {
     const {users}=useContext(context)
 
-    console.log(users);
+
     return (
         <div className='container mt-2'>
             <div className="row">
             {
                 users.map(user=>(
-                    <User data={user} />
+                    <User key={user.id} data={user} />
                 ))
             }
             </div>

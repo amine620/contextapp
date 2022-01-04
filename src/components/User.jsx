@@ -5,7 +5,7 @@ export default function User(props) {
     const {deleteUser}=useContext(context)
     return ( 
         <div className='col-md-4 mt-2'>
-            <ul className='list-group'>
+            <ul  className='list-group'>
                 <li className='list-group-item'>{props.data.name}</li>
                 <li className='list-group-item'>{props.data.email}</li>
                 <li className='list-group-item'>{props.data.phone}</li>  

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { createContext,  useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -8,6 +9,7 @@ export const context=createContext()
 export default function DataProvider(props) {
 
     const [users,setusers]=useState([])
+    const navigate=useNavigate()
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -27,7 +29,11 @@ export default function DataProvider(props) {
 
     function addUser(user)
     {
-         
+         axios.post('https://jsonplaceholder.typicode.com/users',user)
+         .then(res=>{
+             setusers([res.data,...users])
+             navigate('/users')
+         })
     }
 
     const message='hi from context'
